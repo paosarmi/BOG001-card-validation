@@ -1,60 +1,108 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>DupaPay</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="assets/faviconDupaPay.ico" />
+    <link rel="icon" href="/assets/faviconDupaPay.ico" />
   </head>
   <body>
     <header>
-      <div class="logo-container">
-        <img src="assets/logo.png" alt="Logo DupaPay">
+      <div id="homeDiv" class="logo-container">
+        <img src="/assets/logo.png" alt="Logo DupaPay" />
       </div>
     </header>
+
     <main>
       <section id="firstView" class="first-page">
         <div class="user-login">
-          <img src="assets/imagen2.png" alt="Afiliado" />
-          <input type="button" class="buttonSelect" value="Afiliado a DupaPay" id="affiliatebutton"/>
+          <img src="/assets/imagen2.png" alt="Afiliado" />
+          <input
+            type="button"
+            class="buttonSelect"
+            value="Afiliado a DupaPay"
+            id="affiliateButton"
+          />
         </div>
         <div class="user-login">
-          <img src="assets/image1.png" alt="Afiliar" />
-          <input type="button" class="buttonSelect" value="Afiliar tarjeta de credito" />
+          <img src="/assets/image1.png" alt="Afiliar" />
+          <input
+            id="signUpButton"
+            type="button"
+            class="buttonSelect"
+            value="Afiliar tarjeta de credito"
+          />
         </div>
       </section>
-      <section class="form"  id="form">
+      <section class="homeButton" id="notFoundView" style="display: none;">
+        <div class="notFoundPage">
+          <img
+            class="notFoundImage"
+            src="/assets/error404.png"
+            alt="Error404"
+          />
+          <h3>Página no encontrada</h3>
+        </div>
+        <input id="returnButton" type="button" value="Volver" class="button" />
+      </section>
+      <section class="form">
         <div class="form-container">
-          <form class="validator-form-container">
-            <h1>Dupa Card</h1>
-            <div class="inputs-container">
-            <input id="userMail" class="input" required="required" type="email" placeholder="Correo electrónico afiliado"/>
-            <input id="numberTdc" class="input" autocomplete="off" required="required" type="text" minlength="10" maxlength="18" placeholder="N° Tarjeta de crédito"/>
-            <input id="buttonForm" value="Pagar" class="button" required="required" type="submit"/>
+          <form
+            autocomplete="off"
+            class="validator-form-container"
+            id="form"
+            style="display: none;"
+          >
+            <h2>Dupa Card</h2>
+            <div class="input-center">
+              <input
+                id="userName"
+                class="input"
+                required
+                type="email"
+                placeholder="Correo electrónico afiliado"
+              />
+              <input
+                id="numberTdc"
+                class="input"
+                required
+                minlength="10"
+                maxlength="18"
+                type="text"
+                placeholder="N° Tarjeta de crédito"
+              />
+              <input
+                id="buttonForm"
+                value="Validar"
+                class="button"
+                required
+                type="submit"
+              />
             </div>
           </form>
-          <h3 id="invalidCard"></h3>
         </div>
+        <h1 id="invalidCard"></h1>
       </section>
       <section id="validCard">
         <div class="valid-container">
           <div class="valid-img-container">
-            <img src="assets/check.png" alt="Valid Card">
+            <img class="checkImage" src="/assets/check.png" alt="Valid Card" />
           </div>
-          <h3 id="validCardMessage"></h3>
+          <h1 id="validCardMessage"></h1>
         </div>
       </section>
     </main>
+
     <footer>
-      <div class="bottom-bar">
-        <div class="contact">
+      <div class="lower-bar">
+        <div>
           <a href="#">Contacto</a>
           <a href="#">Preguntas frecuentes</a>
         </div>
-        <div class="socialmedia-icons">
-          <img src="assets/facebook.png" alt="icono facebook" />
-          <img src="assets/instagram.png" alt="icono instagram" />
-          <img src="assets/twitter.png" alt="icono twitter" />
+        <div class="social-icon">
+          <img src="/assets/facebook.png" alt="icono facebook" />
+          <img src="/assets/instagram(1).png" alt="icono instagram" />
+          <img src="/assets/twitter.png" alt="icono twitter" />
         </div>
       </div>
     </footer>

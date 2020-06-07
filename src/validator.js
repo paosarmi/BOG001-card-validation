@@ -1,11 +1,11 @@
 const validator = {
-  isValid: function(num){
+  isValid: function (num) {
     let numsGroup = num.split("").reverse();
     let sum = 0;
 
-    for(let i = 1; i < numsGroup.length; i += 2){
+    for (let i = 1; i < numsGroup.length; i += 2) {
       let multi = numsGroup[i] * 2;
-      if(multi >= 10){
+      if (multi >= 10) {
         multi = multi.toString();
         multi = multi.split("");
         multi = parseInt(multi[0]) + parseInt(multi[1]);
@@ -13,30 +13,26 @@ const validator = {
       numsGroup[i] = multi;
     }
 
-    for(let j = 0; j < numsGroup.length; j++){
-      let odd = numsGroup[j];
-      odd = parseInt(odd);
-      numsGroup[j] = odd;
-    }
-    numsGroup.forEach(function(digit) {
-      sum += digit
-    })
-
-    if(sum % 10 === 0){
-      return true;
-    }else {
-      return false;
-    }
-
+    numsGroup.forEach(function (digit) {
+      sum += parseInt(digit);
+    });
+    return sum % 10 === 0;
   },
+  /*
+  cuando ingresa el número ya validado lo retorna como un string cifrado con # exceptuando los últimos 4 digitos
+  params: creditCardNumber - string
+  return: tarjeta de credito cifrada - string
+  */
+  maskify: function (creditCardNumber) {
+    let creditCardNumberReversed = "";
+    for (let i = creditCardNumber.length - 1; i >= 0; i--) {
+      creditCardNumberReversed = creditCardNumberReversed + creditCardNumber[i];
+    }
 
-  maskify: function(num2) {
-    let numsGroup2 = num2.split("").reverse();
     let maskReversed = "";
-   
-    for (let i = 0; i < numsGroup2.length; i++) {
+    for (let i = 0; i < creditCardNumberReversed.length; i++) {
       if (i < 4) {
-        maskReversed = maskReversed + numsGroup2[i];
+        maskReversed = maskReversed + creditCardNumberReversed[i];
       } else {
         maskReversed = maskReversed + "#";
       }
