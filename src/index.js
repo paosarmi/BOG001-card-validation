@@ -9,22 +9,24 @@ const validCreditCard = document.getElementById("validCard");
 const validCardReport = document.getElementById("validCardMessage");
 const affiliateButton = document.getElementById("affiliateButton");
 const signUpButton = document.getElementById("signUpButton");
-const returnButton = document.getElementById("returnButton");
+const returnButton = document.getElementById("returnButton"); //determinar ubicacion, boton o logo
 const notFoundView = document.getElementById("notFoundView");
 const firstView = document.getElementById("firstView");
-const homeDiv = document.getElementById("homeDiv");
+const homeBack = document.getElementById("homeBack");
 
 formValidator.addEventListener("submit", getNumber);
 affiliateButton.addEventListener("click", secondView);
 signUpButton.addEventListener("click", notFound);
 returnButton.addEventListener("click", returnHome);
-homeDiv.addEventListener("click", returnHome);
+homeBack.addEventListener("click", returnHome);
 validCreditCard.style.display = "none";
+notFoundView.style.display = "none";
+formValidator.style.display = "none";
 
 function secondView() {
   formValidator.style.display = "block";
   firstView.style.display = "none";
-  let userName = document.getElementById("userName");
+  let userName = document.getElementById("userMail");
   userName.value = "";
   let numberTdc = document.getElementById("numberTdc");
   numberTdc.value = "";
@@ -40,6 +42,7 @@ function returnHome() {
   notFoundView.style.display = "none";
   formValidator.style.display = "none";
   validCreditCard.style.display = "none";
+  invalidCreditCard.innerHTML = "";
 }
 
 function approvedTransaction() {
@@ -62,12 +65,10 @@ function getNumber(event) {
   validator.maskify(tdcNumber);
 }
 
-document.getElementById("numberTdc").addEventListener("input", onlyNumber);
+userCreditCard.addEventListener("input", onlyNumber);
 
 function onlyNumber() {
   let numberTdc = document.getElementById("numberTdc");
-  const regEx = new RegExp(/^\d+$/);
-  if (!regEx.test(numberTdc.value)) {
-    numberTdc.value = numberTdc.value.substring(0, numberTdc.value.length - 1);
-  }
+  const regEx = new RegExp(/\D/g);
+  numberTdc.value = numberTdc.value.replace(regEx, "");
 }
