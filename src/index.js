@@ -2,14 +2,14 @@ import validator from "./validator.js";
 
 // console.log(validator);
 
-const formValidator = document.getElementById("form"); // form
-const userCreditCard = document.getElementById("numberTdc"); // input
+const formValidator = document.getElementById("form");
+const userCreditCard = document.getElementById("numberTdc");
 const invalidCreditCard = document.getElementById("invalidCard");
 const validCreditCard = document.getElementById("validCard");
 const validCardReport = document.getElementById("validCardMessage");
 const affiliateButton = document.getElementById("affiliateButton");
 const signUpButton = document.getElementById("signUpButton");
-const returnButton = document.getElementById("returnButton"); //determinar ubicacion, boton o logo
+const returnButton = document.getElementById("returnButton");
 const notFoundView = document.getElementById("notFoundView");
 const firstView = document.getElementById("firstView");
 const homeBack = document.getElementById("homeBack");
@@ -26,8 +26,8 @@ formValidator.style.display = "none";
 function secondView() {
   formValidator.style.display = "block";
   firstView.style.display = "none";
-  let userName = document.getElementById("userMail");
-  userName.value = "";
+  let userMail = document.getElementById("userMail");
+  userMail.value = "";
   let numberTdc = document.getElementById("numberTdc");
   numberTdc.value = "";
 }
@@ -56,7 +56,7 @@ function approvedTransaction() {
 
 function getNumber(event) {
   event.preventDefault();
-  const tdcNumber = userCreditCard.value; // value
+  const tdcNumber = userCreditCard.value;
   if (validator.isValid(tdcNumber) === true) {
     approvedTransaction();
   } else {
